@@ -1,7 +1,8 @@
 #[cfg(test)]
 mod tests;
-use crate::token::*;
+use crate::token::{self, Token, TokenType::*};
 
+#[derive(Debug, PartialEq)]
 pub struct Lexer<'a> {
     input: &'a str,
     position: usize,

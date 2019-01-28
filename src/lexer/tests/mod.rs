@@ -4,7 +4,8 @@ use crate::lexer::*;
 #[test]
 fn test_next_token1() {
     let input = "=+(){},;";
-    let tests: Vec<(&str, String)> = vec![
+    use crate::token::TokenType::{ASSIGN, COMMA, EOF, LBRACE, LPAREN, PLUS, RBRACE, RPAREN, SEMICOLON};
+    let tests: Vec<(TokenType, String)> = vec![
         (ASSIGN, "=".to_string()),
         (PLUS, "+".to_string()),
         (LPAREN, "(".to_string()),
@@ -29,7 +30,8 @@ fn test_next_token2() {
     let five = 5;
     let six = 60;
     ";
-    let tests: Vec<(&str, String)> = vec![
+    use crate::token::TokenType::{ASSIGN, IDENT, INT, LET, SEMICOLON};
+    let tests: Vec<(TokenType, String)> = vec![
         (LET, "let".to_string()),
         (IDENT, "five".to_string()),
         (ASSIGN, "=".to_string()),
